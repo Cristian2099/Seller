@@ -10,18 +10,11 @@ import static programacion.proyecto.cristian.seller.R.layout.tab1;
 
 public class Tab1 extends Fragment{
 
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-
-        return inflater.inflate(tab1, container, false);
+        View view = inflater.inflate(R.layout.tab1,container,false);
+        return view;
 
     }
 }
