@@ -30,11 +30,11 @@ public class Contenido extends FragmentActivity {
     private void setUpViewPager(ViewPager viewPager) {
 
         TabViewPagerAdapter tabViewPagerAdapter = new TabViewPagerAdapter(getSupportFragmentManager());
-        tabViewPagerAdapter.addFragment(new Tab1(),"Tab1");
-        tabViewPagerAdapter.addFragment(new Tab2(),"Tab2");
-        tabViewPagerAdapter.addFragment(new Tab3(),"Tab3");
-        tabViewPagerAdapter.addFragment(new Tab4(),"tab4");
-        tabViewPagerAdapter.addFragment(new Tab4(),"tab5");
+        tabViewPagerAdapter.addFragment(new Tab1(),"Clientes");
+        tabViewPagerAdapter.addFragment(new Tab2(),"Registro");
+        tabViewPagerAdapter.addFragment(new Tab3(),"Pedidos");
+        tabViewPagerAdapter.addFragment(new Tab4(),"Productos");
+        tabViewPagerAdapter.addFragment(new Tab5(),"Buscar");
         viewPager.setAdapter(tabViewPagerAdapter);
     }
 

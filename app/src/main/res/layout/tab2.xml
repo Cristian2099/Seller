@@ -3,14 +3,76 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tab2"
+        android:text="Registrar Cliente"
         android:textAlignment="center"
-        android:textSize="40dp"
-        android:layout_marginTop="100dp" />
+        android:textSize="30dp"
+        android:textColor="@color/md_teal_300"
+        android:layout_marginTop="50dp"
+        />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="40dp"
+        android:hint="Nombre del negocio"
+        />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:hint="Nombre"
+        />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:hint="Apellido"
+        />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:hint="Número de identificación"
+        />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:hint="Teléfono"
+        />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:hint="Dirección"
+        />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="30dp"
+        android:text="Registrar"
+        android:textSize="20dp"
+        android:textColor="@color/md_teal_50"
+        android:background="@color/md_teal_500"
+        />
 
 </LinearLayout>
