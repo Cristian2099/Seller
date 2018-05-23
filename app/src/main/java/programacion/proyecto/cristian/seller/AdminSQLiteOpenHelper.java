@@ -1,10 +1,9 @@
 package programacion.proyecto.cristian.seller;
 
+import android.content.ContentValues;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
-import android.database.sqlite.SQLiteOpenHelper;
 
 public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
 
@@ -14,12 +13,14 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db){
-        db.execSQL("create table usuario(dni integer primary key, nombre text, ciudad text, numero integer)");
+
+        db.execSQL(Nombres.CREAR_TABLA);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int version, int version2){
-        db.execSQL("drop table if exists usuario");
-        db.execSQL("create table usuario(dni integer primary key, nombre text, ciudad text, numero integer)");
+        db.execSQL(Nombres.BORRAR_TABLA);
+        db.execSQL(Nombres.CREAR_TABLA);
     }
+
 }

@@ -6,7 +6,8 @@
         <item name="colorPrimary">@color/md_teal_500</item>
         <item name="colorPrimaryDark">@color/md_teal_600</item>
         <item name="colorAccent">@color/md_teal_500</item>
-
     </style>
+
+
 
 </resources>
