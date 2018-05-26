@@ -1,15 +1,13 @@
 package programacion.proyecto.cristian.seller;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 
 
-public class Inicio extends AppCompatActivity {
+public class Inicio extends AppCompatActivity implements View.OnClickListener {
 
 
     @Override
@@ -17,16 +15,12 @@ public class Inicio extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inicio);
         Button btn = (Button) findViewById(R.id.btn_iniciarSession);
-        btn.setOnClickListener(new View.OnClickListener(){
+        btn.setOnClickListener(this);
 
-            @Override
-            public void onClick(View v){
-                Intent intento = new Intent(v.getContext(), Contenido.class);
-                startActivityForResult(intento,0);
-            }
 
-        });
     }
-
-
+    public void onClick(View view){
+        Intent intent = new Intent(view.getContext(),Contenido.class);
+        startActivity(intent);
+    }
 }

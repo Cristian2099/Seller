@@ -1,35 +1,28 @@
 package programacion.proyecto.cristian.seller;
 
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.EditText;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
-public class Registro extends AppCompatActivity{
+public class Registro extends Fragment{
 
-    EditText nombreNegocio;
-    EditText nombre;
-    EditText apellido;
-    EditText documentoIdentidad;
-    EditText telefono;
-    EditText direccion;
-
+    Button registrar;
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.registro,container,false);
+        registrar = (Button) view.findViewById(R.id.registrando);
+        registrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(),"Hola", Toast.LENGTH_LONG).show();
+            }
+        });
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.registro);
-        nombreNegocio = (EditText)findViewById(R.id.nombrenegocio);
-        nombre = (EditText)findViewById(R.id.nombre);
-        apellido = (EditText)findViewById(R.id.apellido);
-        documentoIdentidad = (EditText)findViewById(R.id.identificacion);
-        telefono = (EditText)findViewById(R.id.telefono);
-        direccion = (EditText)findViewById(R.id.direccion);
-    }
-
-    public void toastear(View view){
-        Toast.makeText(getApplicationContext(),"alsdjf",Toast.LENGTH_LONG).show();
+        return view;
     }
 
 }

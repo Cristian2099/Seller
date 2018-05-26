@@ -1,24 +1,20 @@
 package programacion.proyecto.cristian.seller;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.view.ViewGroup;
+import android.support.v4.app.Fragment;
 
-public class Cliente extends AppCompatActivity{
-
-    Spinner spinner;
-    TextView nombre;
+public class Cliente extends Fragment{
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.cliente,container,false);
+        return view;
+    }
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.cliente);
+    public Cliente(){
 
     }
 

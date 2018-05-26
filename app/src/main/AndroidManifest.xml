@@ -20,9 +20,6 @@
 
         <activity android:name=".Contenido">
 
-        </activity>
-
-        <activity android:name=".Registro">
 
         </activity>
 

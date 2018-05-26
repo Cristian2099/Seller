@@ -2,52 +2,26 @@ package programacion.proyecto.cristian.seller;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTabHost;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.TabHost;
-import android.widget.TextView;
-
-import org.w3c.dom.Text;
-
+import android.view.View;
 
 public class Contenido extends AppCompatActivity{
 
-    TabHost tabHostJava;
+    TabLayout tabLayout;
+    MyPagerAdapter myPagerAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.contenido);
 
+        tabLayout = (TabLayout)findViewById(R.id.pestanas);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
 
-        tabHostJava = (TabHost) findViewById(R.id.THContenido);
-        tabHostJava.setup();
+        myPagerAdapter = new MyPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(myPagerAdapter);
 
-        TabHost.TabSpec clientes =tabHostJava.newTabSpec("clientes");
-        TabHost.TabSpec registros =tabHostJava.newTabSpec("registro");
-        TabHost.TabSpec pedidos =tabHostJava.newTabSpec("pedidos");
-        TabHost.TabSpec productos =tabHostJava.newTabSpec("productos");
-
-        clientes.setContent(R.id.cliente);
-        clientes.setIndicator("Cliente");
-
-        registros.setContent(R.id.registro);
-        registros.setIndicator("Registro");
-
-        pedidos.setContent(R.id.pedido);
-        pedidos.setIndicator("Pedido");
-
-        productos.setContent(R.id.producto);
-        productos.setIndicator("Producto");
-
-        tabHostJava.addTab(clientes);
-        tabHostJava.addTab(registros);
-        tabHostJava.addTab(pedidos);
-        tabHostJava.addTab(productos);
-
+        tabLayout.setupWithViewPager(viewPager);
     }
-
 
 }

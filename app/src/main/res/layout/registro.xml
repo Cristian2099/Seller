@@ -5,7 +5,9 @@
     android:id="@+id/registro"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".Registro"
+    >
 
     <TextView
         android:layout_width="match_parent"
@@ -27,7 +29,7 @@
         />
 
     <EditText
-        android:id="@+id/nombre"
+        android:id="@+id/nombreReg"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="120dp"
@@ -72,7 +74,7 @@
         />
 
     <Button
-        android:id="@+id/registrar"
+        android:id="@+id/registrando"
         android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginLeft="100dp"
@@ -81,7 +83,6 @@
         android:textSize="20dp"
         android:textColor="@color/md_teal_50"
         android:background="@color/md_teal_500"
-        android:onClick="toastear"
         />
 
 </RelativeLayout>
