@@ -20,7 +20,7 @@
         />
 
     <EditText
-        android:id="@+id/nombrenegocio"
+        android:id="@+id/edTxtNomNegocio"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="70dp"
@@ -29,7 +29,7 @@
         />
 
     <EditText
-        android:id="@+id/nombreReg"
+        android:id="@+id/edTxtNombre"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="120dp"
@@ -38,7 +38,7 @@
         />
 
     <EditText
-        android:id="@+id/apellido"
+        android:id="@+id/edTxtApellido"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="170dp"
@@ -47,7 +47,7 @@
         />
 
     <EditText
-        android:id="@+id/identificacion"
+        android:id="@+id/edTxtIdentificacion"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="220dp"
@@ -56,7 +56,7 @@
         />
 
     <EditText
-        android:id="@+id/telefono"
+        android:id="@+id/edTxtTelefono"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="270dp"
@@ -65,7 +65,7 @@
         />
 
     <EditText
-        android:id="@+id/direccion"
+        android:id="@+id/edTxtDireccion"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="320dp"
