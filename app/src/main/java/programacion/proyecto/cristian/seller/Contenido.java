@@ -10,6 +10,7 @@ public class Contenido extends AppCompatActivity{
 
     TabLayout tabLayout;
     MyPagerAdapter myPagerAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -17,8 +17,8 @@ public class Inicio extends AppCompatActivity implements View.OnClickListener {
         Button btn = (Button) findViewById(R.id.btn_iniciarSession);
         btn.setOnClickListener(this);
 
-
     }
+
     public void onClick(View view){
         Intent intent = new Intent(view.getContext(),Contenido.class);
         startActivity(intent);

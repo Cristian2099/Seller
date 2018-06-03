@@ -4,7 +4,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
+import java.io.Closeable;
+
+public class AdminSQLiteOpenHelper extends SQLiteOpenHelper implements Closeable{
 
     public AdminSQLiteOpenHelper(Context context, String nombre, SQLiteDatabase.CursorFactory factory, int version){
         super(context, nombre,factory,version);
