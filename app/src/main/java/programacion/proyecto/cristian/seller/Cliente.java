@@ -1,5 +1,6 @@
 package programacion.proyecto.cristian.seller;
 
+import programacion.proyecto.cristian.seller.DetallesCliente;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -35,11 +36,21 @@ public class Cliente extends Fragment{
         consultarListaClientes();
         ArrayAdapter adapter = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,listaInfo);
         listView.setAdapter(adapter);
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(view.getContext(),DetallesCliente.class);
-                startActivityForResult(intent,0);
+                PojoCliente cliente = listaClientes.get(position);
+                Intent intent = new Intent(getView().getContext(),DetallesCliente.class);
+                intent.putExtra("nombreEmpresa", cliente.getNombreNegocio());
+                intent.putExtra("nombre", cliente.getNombre());
+                intent.putExtra("apellido", cliente.getApellido());
+                intent.putExtra("identificacion", cliente.getCedula());
+                intent.putExtra("telefono", cliente.getTelefono());
+                intent.putExtra("direccion", cliente.getDireccion());
+                startActivity(intent);
+
+
             }
         });
         return view;

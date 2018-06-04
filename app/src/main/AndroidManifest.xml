@@ -23,6 +23,10 @@
 
         </activity>
 
+        <activity android:name=".DetallesCliente">
+
+        </activity>
+
     </application>
 
 </manifest>

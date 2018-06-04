@@ -14,6 +14,7 @@
         />
 
     <TextView
+        android:id="@+id/lblNombreEmpresa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
@@ -23,6 +24,7 @@
         />
 
     <TextView
+        android:id="@+id/lblNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="110dp"
@@ -33,6 +35,7 @@
 
 
     <TextView
+        android:id="@+id/lblIdentificacion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
@@ -42,6 +45,7 @@
         />
 
     <TextView
+        android:id="@+id/lblTelefono"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="190dp"
@@ -51,6 +55,7 @@
         />
 
     <TextView
+        android:id="@+id/lblDireccion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="230dp"
@@ -60,6 +65,7 @@
         />
 
     <Button
+        android:id="@+id/btnCrearPedido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="300dp"
