@@ -1,5 +1,6 @@
 package programacion.proyecto.cristian.seller;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -9,7 +10,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class Inicio extends AppCompatActivity implements View.OnClickListener {
@@ -26,10 +26,15 @@ public class Inicio extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.inicio);
         btn = (Button) findViewById(R.id.btn_iniciarSession);
         btn.setOnClickListener(this);
-
         usuario = (EditText) findViewById(R.id.txtUsuario);
         contrasena = (EditText) findViewById(R.id.txtContrasena);
 
+        AdminSQLiteOpenHelper conn = new AdminSQLiteOpenHelper(getApplicationContext(),"bd_seller",null,1);
+        SQLiteDatabase db = conn.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(Utilidades.CAMPO_USUARIO,"cristian2099");
+        values.put(Utilidades.CAMPO_CONTRASENA,"1234");
+        db.insert(Utilidades.TABLA_USUARIOS,null,values);
 
     }
 

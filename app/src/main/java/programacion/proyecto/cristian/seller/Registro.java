@@ -81,7 +81,7 @@ public class Registro extends Fragment implements View.OnClickListener {
             values.put(Utilidades.CAMPO_TELEFONO,telefono.getText().toString());
             values.put(Utilidades.CAMPO_DIRECCION,direccion.getText().toString());
 
-            Long resultado = db.insert(Utilidades.TABLA_CLIENTES,Utilidades.CAMPO_CEDULA,values);
+            Long resultado = db.insert(Utilidades.TABLA_CLIENTES,null,values);
             Toast.makeText(getContext(),"Registrado " + resultado,Toast.LENGTH_SHORT).show();
 
             nombreNegocio.setText("");
