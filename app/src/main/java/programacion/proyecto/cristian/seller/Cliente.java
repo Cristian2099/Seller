@@ -1,6 +1,8 @@
 package programacion.proyecto.cristian.seller;
 
 import programacion.proyecto.cristian.seller.DetallesCliente;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -20,9 +22,10 @@ import entidades.PojoCliente;
 public class Cliente extends Fragment{
 
     ListView listView;
-    ArrayList<String> listaInfo;
-    ArrayList<PojoCliente> listaClientes;
+    static ArrayList<String> listaInfo;
+    static ArrayList<PojoCliente> listaClientes;
     AdminSQLiteOpenHelper conn;
+    static ArrayAdapter adapter;
     public Cliente(){
 
     }
@@ -31,10 +34,11 @@ public class Cliente extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.cliente,container,false);
 
-        conn = new AdminSQLiteOpenHelper(getContext(),"bd_clientes",null,1);
+        conn = new AdminSQLiteOpenHelper(getContext(),"bd_seller",null,1);
         listView = (ListView) view.findViewById(R.id.listV);
         consultarListaClientes();
-        ArrayAdapter adapter = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,listaInfo);
+        adapter = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,listaInfo);
+        adapter.notifyDataSetChanged();
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -53,12 +57,15 @@ public class Cliente extends Fragment{
 
             }
         });
+
+
         return view;
 
     }
 
     public void consultarListaClientes(){
-        SQLiteDatabase db=conn.getReadableDatabase();
+
+        SQLiteDatabase db = conn.getReadableDatabase();
         PojoCliente pojoCliente = null;
         listaClientes=new ArrayList<PojoCliente>();
 
@@ -82,9 +89,7 @@ public class Cliente extends Fragment{
         listaInfo = new ArrayList<String>();
 
         for(int i=0; i<listaClientes.size();i++){
-            listaInfo.add(listaClientes.get(i).getNombreNegocio()+"    -    "+listaClientes.get(i).getNombre());
-
-
+            listaInfo.add(listaClientes.get(i).getNombreNegocio() + "    -    " + listaClientes.get(i).getNombre());
         }
     }
 

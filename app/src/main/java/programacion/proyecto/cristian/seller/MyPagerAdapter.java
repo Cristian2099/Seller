@@ -3,6 +3,7 @@ package programacion.proyecto.cristian.seller;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.view.View;
 
 public class MyPagerAdapter extends FragmentStatePagerAdapter{
 

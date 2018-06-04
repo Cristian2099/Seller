@@ -1,6 +1,7 @@
 package programacion.proyecto.cristian.seller;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.bumptech.glide.util.Util;
+
+import java.util.ArrayList;
+
+import entidades.PojoCliente;
 
 public class Registro extends Fragment implements View.OnClickListener {
 
@@ -43,31 +48,51 @@ public class Registro extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        AdminSQLiteOpenHelper conn = new AdminSQLiteOpenHelper(getContext(), "bd_seller", null,1);
         registrar();
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+        PojoCliente pojoCliente = null;
+
+        Cursor cursor = db.rawQuery("select * from "+ Utilidades.TABLA_CLIENTES,null);
+        pojoCliente = new PojoCliente();
+        cursor.moveToLast();
+        pojoCliente.setNombreNegocio(cursor.getString(0));
+        pojoCliente.setNombre(cursor.getString(1));
+        pojoCliente.setApellido(cursor.getString(2));
+        pojoCliente.setCedula(cursor.getString(3));
+        pojoCliente.setTelefono(cursor.getString(4));
+        pojoCliente.setDireccion(cursor.getString(5));
+
+        Cliente.listaClientes.add(pojoCliente);
+        Cliente.listaInfo.add(Cliente.listaClientes.get(Cliente.listaClientes.size()-1).getNombreNegocio() + "   -   " +
+                Cliente.listaClientes.get(Cliente.listaClientes.size()-1).getNombre());
+        Cliente.adapter.notifyDataSetChanged();
     }
 
     public void registrar(){
-        AdminSQLiteOpenHelper conn = new AdminSQLiteOpenHelper(getContext(), "bd_clientes", null,1);
-        SQLiteDatabase db = conn.getWritableDatabase();
-        ContentValues values = new ContentValues();
-
-
-        try{
+        try(AdminSQLiteOpenHelper conn = new AdminSQLiteOpenHelper(getContext(), "bd_seller", null,1)){
+            SQLiteDatabase db = conn.getWritableDatabase();
+            ContentValues values = new ContentValues();
             values.put(Utilidades.CAMPO_NOMBRE_NEGOCIO,nombreNegocio.getText().toString());
-            values.put(Utilidades.CAMPO_NOMBRE,nombre.getText().toString());
+            values.put(Utilidades.CAMPO_NOMBRE_CLIENTE,nombre.getText().toString());
             values.put(Utilidades.CAMPO_APELLIDO,apellido.getText().toString());
             values.put(Utilidades.CAMPO_CEDULA,identificacion.getText().toString());
             values.put(Utilidades.CAMPO_TELEFONO,telefono.getText().toString());
             values.put(Utilidades.CAMPO_DIRECCION,direccion.getText().toString());
 
             Long resultado = db.insert(Utilidades.TABLA_CLIENTES,Utilidades.CAMPO_CEDULA,values);
-
             Toast.makeText(getContext(),"Registrado " + resultado,Toast.LENGTH_SHORT).show();
+
+            nombreNegocio.setText("");
+            nombre.setText("");
+            apellido.setText("");
+            identificacion.setText("");
+            telefono.setText("");
+            direccion.setText("");
 
         }catch (SQLiteException e){
             Toast.makeText(getContext(),"No se ingresó ningún valor " ,Toast.LENGTH_LONG).show();
-        }finally {
-            db.close();
         }
     }
 
