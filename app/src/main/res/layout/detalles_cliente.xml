@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Detalles"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:textColor="@color/md_teal_300"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="30dp"
+        android:text="Empresa: "
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="30dp"
+        android:text="Cliente: "
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="30dp"
+        android:text="Cédula: "
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="190dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="30dp"
+        android:text="Teléfono: "
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="230dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="30dp"
+        android:text="Dirección: "
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="140dp"
+        android:text="Crear pedido"
+        />
+
+</RelativeLayout>

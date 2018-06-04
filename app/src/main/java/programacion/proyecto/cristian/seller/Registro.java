@@ -47,12 +47,10 @@ public class Registro extends Fragment implements View.OnClickListener {
     }
 
     public void registrar(){
-        AdminSQLiteOpenHelper conn = new AdminSQLiteOpenHelper(getContext(), "bd_clientes", null,1);
-        SQLiteDatabase db = conn.getWritableDatabase();
-        ContentValues values = new ContentValues();
 
-
-        try{
+        try(AdminSQLiteOpenHelper conn = new AdminSQLiteOpenHelper(getContext(), "bd_clientes", null,1)){
+            SQLiteDatabase db = conn.getWritableDatabase();
+            ContentValues values = new ContentValues();
             values.put(Utilidades.CAMPO_NOMBRE_NEGOCIO,nombreNegocio.getText().toString());
             values.put(Utilidades.CAMPO_NOMBRE,nombre.getText().toString());
             values.put(Utilidades.CAMPO_APELLIDO,apellido.getText().toString());
@@ -62,12 +60,16 @@ public class Registro extends Fragment implements View.OnClickListener {
 
             Long resultado = db.insert(Utilidades.TABLA_CLIENTES,Utilidades.CAMPO_CEDULA,values);
 
+            nombreNegocio.setText("");
+            nombre.setText("");
+            apellido.setText("");
+            identificacion.setText("");
+            telefono.setText("");
+            direccion.setText("");
             Toast.makeText(getContext(),"Registrado " + resultado,Toast.LENGTH_SHORT).show();
 
         }catch (SQLiteException e){
             Toast.makeText(getContext(),"No se ingresó ningún valor " ,Toast.LENGTH_LONG).show();
-        }finally {
-            db.close();
         }
     }
 
