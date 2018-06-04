@@ -4,6 +4,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.bumptech.glide.util.Util;
+
 import java.io.Closeable;
 
 public class AdminSQLiteOpenHelper extends SQLiteOpenHelper implements Closeable{
@@ -18,6 +20,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper implements Closeable
         db.execSQL(Utilidades.CREAR_TABLA_CLIENTES);
         db.execSQL(Utilidades.CREAR_TABLA_PEDIDOS);
         db.execSQL(Utilidades.CREAR_TABLA_PRODUCTOS);
+        db.execSQL(Utilidades.CREAR_TABLA_USUARIOS);
     }
 
     @Override
@@ -26,11 +29,13 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper implements Closeable
         db.execSQL(Utilidades.BORRAR_TABLA_CLIENTES);
         db.execSQL(Utilidades.BORRAR_TABLA_PEDIDOS);
         db.execSQL(Utilidades.BORRAR_TABLA_PRODUCTOS);
+        db.execSQL(Utilidades.BORRAR_TABLA_USUARIOS);
 
         //CREA LAS TABLAS CON LA NUEVA VERSIÓN DE LA BASE DE DATOS
         db.execSQL(Utilidades.CREAR_TABLA_CLIENTES);
         db.execSQL(Utilidades.CREAR_TABLA_PEDIDOS);
         db.execSQL(Utilidades.CREAR_TABLA_PRODUCTOS);
+        db.execSQL(Utilidades.CREAR_TABLA_USUARIOS);
     }
 
 }
