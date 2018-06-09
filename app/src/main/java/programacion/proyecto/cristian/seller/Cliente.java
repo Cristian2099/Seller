@@ -14,6 +14,7 @@ import android.support.v4.app.Fragment;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -21,11 +22,12 @@ import entidades.PojoCliente;
 
 public class Cliente extends Fragment{
 
+    static ArrayList<String> listaInfo;
+    static ArrayList<PojoCliente> listaClientes;
+    static ArrayAdapter adapter;
     ListView listView;
-    ArrayList<String> listaInfo;
-    ArrayList<PojoCliente> listaClientes;
     AdminSQLiteOpenHelper conn;
-    ArrayAdapter adapter;
+
 
     public Cliente(){
 
@@ -39,9 +41,8 @@ public class Cliente extends Fragment{
         listView = (ListView) view.findViewById(R.id.listV);
         consultarListaClientes();
         adapter = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,listaInfo);
-        adapter.notifyDataSetChanged();
         listView.setAdapter(adapter);
-
+        adapter.notifyDataSetChanged();
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -81,7 +82,6 @@ public class Cliente extends Fragment{
             listaClientes.add(pojoCliente);
 
         }
-
         obtenerLista();
     }
 
