@@ -48,26 +48,7 @@ public class Registro extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        AdminSQLiteOpenHelper conn = new AdminSQLiteOpenHelper(getContext(), "bd_seller", null,1);
         registrar();
-
-        SQLiteDatabase db = conn.getReadableDatabase();
-        PojoCliente pojoCliente = null;
-
-        Cursor cursor = db.rawQuery("select * from "+ Utilidades.TABLA_CLIENTES,null);
-        pojoCliente = new PojoCliente();
-        cursor.moveToLast();
-        pojoCliente.setNombreNegocio(cursor.getString(0));
-        pojoCliente.setNombre(cursor.getString(1));
-        pojoCliente.setApellido(cursor.getString(2));
-        pojoCliente.setCedula(cursor.getString(3));
-        pojoCliente.setTelefono(cursor.getString(4));
-        pojoCliente.setDireccion(cursor.getString(5));
-
-        Cliente.listaClientes.add(pojoCliente);
-        Cliente.listaInfo.add(Cliente.listaClientes.get(Cliente.listaClientes.size()-1).getNombreNegocio() + "   -   " +
-                Cliente.listaClientes.get(Cliente.listaClientes.size()-1).getNombre());
-        Cliente.adapter.notifyDataSetChanged();
     }
 
     public void registrar(){

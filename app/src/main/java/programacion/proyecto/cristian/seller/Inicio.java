@@ -16,26 +16,19 @@ public class Inicio extends AppCompatActivity implements View.OnClickListener {
 
     EditText usuario;
     EditText contrasena;
-    Button btn;
-
+    Button btnInicio;
+    Button btnUsuarios;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inicio);
-        btn = (Button) findViewById(R.id.btn_iniciarSession);
-        btn.setOnClickListener(this);
+        btnInicio = (Button) findViewById(R.id.btn_iniciarSession);
+        btnInicio.setOnClickListener(this);
+        btnUsuarios = (Button) findViewById(R.id.btn_crearUsuarios);
         usuario = (EditText) findViewById(R.id.txtUsuario);
         contrasena = (EditText) findViewById(R.id.txtContrasena);
-
-        AdminSQLiteOpenHelper conn = new AdminSQLiteOpenHelper(getApplicationContext(),"bd_seller",null,1);
-        SQLiteDatabase db = conn.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(Utilidades.CAMPO_USUARIO,"cristian2099");
-        values.put(Utilidades.CAMPO_CONTRASENA,"1234");
-        db.insert(Utilidades.TABLA_USUARIOS,null,values);
-
     }
 
     public void onClick(View view){
@@ -49,15 +42,35 @@ public class Inicio extends AppCompatActivity implements View.OnClickListener {
                     Intent intent = new Intent(view.getContext(),Contenido.class);
                     startActivity(intent);
                     Toast.makeText(view.getContext(),"Datos correctos",Toast.LENGTH_SHORT).show();
-                }else {
+                    break;
+
+                }else if(cursor.getPosition() != 0){
                     Toast.makeText(view.getContext(),"Datos incorrectos",Toast.LENGTH_SHORT).show();
                 }
+
             }
         }catch(SQLiteException e){
             Toast.makeText(view.getContext(),"Ha ocurrido un error en la validación" + e,Toast.LENGTH_SHORT).show();
         }
+    }
 
+    public void crearUsuarios(View view){
+        AdminSQLiteOpenHelper conn = new AdminSQLiteOpenHelper(getApplicationContext(),"bd_seller",null,1);
+        SQLiteDatabase db = conn.getWritableDatabase();
+        ContentValues values;
 
+        values =  new ContentValues();
+        values.put(Utilidades.CAMPO_USUARIO,"lina");
+        values.put(Utilidades.CAMPO_CONTRASENA,"9876");
+        db.insert(Utilidades.TABLA_USUARIOS,null,values);
+
+        values = new ContentValues();
+        values.put(Utilidades.CAMPO_USUARIO,"cristian2099");
+        values.put(Utilidades.CAMPO_CONTRASENA,"1234");
+        db.insert(Utilidades.TABLA_USUARIOS,null,values);
+
+        Toast.makeText(view.getContext(),"Se han creado los usuarios",Toast.LENGTH_SHORT).show();
+        btnUsuarios.setVisibility(View.INVISIBLE);
 
     }
 }

@@ -22,10 +22,11 @@ import entidades.PojoCliente;
 public class Cliente extends Fragment{
 
     ListView listView;
-    static ArrayList<String> listaInfo;
-    static ArrayList<PojoCliente> listaClientes;
+    ArrayList<String> listaInfo;
+    ArrayList<PojoCliente> listaClientes;
     AdminSQLiteOpenHelper conn;
-    static ArrayAdapter adapter;
+    ArrayAdapter adapter;
+
     public Cliente(){
 
     }
@@ -53,8 +54,6 @@ public class Cliente extends Fragment{
                 intent.putExtra("telefono", cliente.getTelefono());
                 intent.putExtra("direccion", cliente.getDireccion());
                 startActivity(intent);
-
-
             }
         });
 
@@ -67,7 +66,7 @@ public class Cliente extends Fragment{
 
         SQLiteDatabase db = conn.getReadableDatabase();
         PojoCliente pojoCliente = null;
-        listaClientes=new ArrayList<PojoCliente>();
+        listaClientes = new ArrayList<PojoCliente>();
 
         Cursor cursor = db.rawQuery("select * from "+ Utilidades.TABLA_CLIENTES,null);
         while(cursor.moveToNext()){
@@ -82,10 +81,12 @@ public class Cliente extends Fragment{
             listaClientes.add(pojoCliente);
 
         }
+
         obtenerLista();
     }
 
     private void obtenerLista() {
+
         listaInfo = new ArrayList<String>();
 
         for(int i=0; i<listaClientes.size();i++){
