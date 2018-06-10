@@ -22,8 +22,8 @@ import entidades.PojoCliente;
 
 public class Cliente extends Fragment{
 
-    static ArrayList<String> listaInfo;
-    static ArrayList<PojoCliente> listaClientes;
+    static ArrayList<String> listaInfo = new ArrayList<>();
+    static ArrayList<PojoCliente> listaClientes = new ArrayList<>();
     static ArrayAdapter adapter;
     ListView listViewClientes;
     AdminSQLiteOpenHelper conn;
@@ -36,7 +36,8 @@ public class Cliente extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.cliente,container,false);
-
+        listaClientes.clear();
+        listaInfo.clear();
         conn = new AdminSQLiteOpenHelper(getContext(),"bd_seller",null,1);
         listViewClientes = (ListView) view.findViewById(R.id.listViewClientes);
         consultarListaClientes();
@@ -67,7 +68,6 @@ public class Cliente extends Fragment{
 
         SQLiteDatabase db = conn.getReadableDatabase();
         PojoCliente pojoCliente = null;
-        listaClientes = new ArrayList<PojoCliente>();
 
         Cursor cursor = db.rawQuery("select * from "+ Utilidades.TABLA_CLIENTES,null);
         while(cursor.moveToNext()){
@@ -86,8 +86,6 @@ public class Cliente extends Fragment{
     }
 
     private void obtenerLista() {
-
-        listaInfo = new ArrayList<String>();
 
         for(int i=0; i<listaClientes.size();i++){
             listaInfo.add(listaClientes.get(i).getNombreNegocio() + "    -    " + listaClientes.get(i).getNombre());

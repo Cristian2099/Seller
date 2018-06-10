@@ -32,6 +32,10 @@
 
         </activity>
 
+        <activity android:name=".DetallesProducto">
+
+        </activity>
+
     </application>
 
 </manifest>

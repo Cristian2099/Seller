@@ -21,7 +21,9 @@
         android:id="@+id/listViewProductos"
         android:layout_width="match_parent"
         android:layout_height="320dp"
-        ></ListView>
+        >
+
+    </ListView>
 
     <Button
         android:id="@+id/btnAñadir"

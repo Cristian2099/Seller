@@ -1,10 +1,13 @@
 package programacion.proyecto.cristian.seller;
 
+import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +15,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+
 import entidades.PojoProducto;
 
 public class RegistrarProducto extends AppCompatActivity implements View.OnClickListener{
@@ -25,7 +35,7 @@ public class RegistrarProducto extends AppCompatActivity implements View.OnClick
     EditText cantidad;
     EditText precio;
 
-    private static final int PHOTO_SELECTED = 1;
+    private static final int SELECTED_FILE = 1;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +45,6 @@ public class RegistrarProducto extends AppCompatActivity implements View.OnClick
         descripcion = (EditText) findViewById(R.id.edTxtDescripcion);
         cantidad = (EditText) findViewById(R.id.edTxtCantidad);
         precio = (EditText) findViewById(R.id.edTxtPrecio);
-
         btnRegistrarProducto = (Button) findViewById(R.id.btnNuevoProd);
         btnRegistrarProducto.setOnClickListener(this);
         imagen = (ImageButton) findViewById(R.id.imgProducto);
@@ -50,14 +59,19 @@ public class RegistrarProducto extends AppCompatActivity implements View.OnClick
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    protected void onActivityResult(int requestCode, int resultCode, Intent imageReturnIntent) {
+        super.onActivityResult(requestCode, resultCode, imageReturnIntent);
+        Uri selectedImageUri = null;
+        Uri selectedImage = null;
+        String filePath = null;
+
         if (resultCode == RESULT_OK){
-            Uri path = data.getData();
+            Uri path = imageReturnIntent.getData();
             imagen.setImageURI(path);
             imagen.setBackgroundResource(R.color.md_grey_200);
             rutaImagen = path.toString();
         }
+
     }
 
     public void onClick(View v){
@@ -70,15 +84,15 @@ public class RegistrarProducto extends AppCompatActivity implements View.OnClick
         while(cursor.moveToNext()){
             pojoProducto = new PojoProducto();
             pojoProducto.setNombre(cursor.getString(0));
-            pojoProducto.setCantidad(cursor.getString(1));
-            pojoProducto.setPrecio(cursor.getString(2));
-            pojoProducto.setDescripcion(cursor.getString(3));
+            pojoProducto.setDescripcion(cursor.getString(1));
+            pojoProducto.setCantidad(cursor.getString(2));
+            pojoProducto.setPrecio(cursor.getString(3));
             pojoProducto.setRutaImagen(cursor.getString(4));
             Catalogo.listaDetallesProductos.add(pojoProducto);
         }
 
-        Catalogo.listaInfoProductos.add(Catalogo.listaDetallesProductos.get(Catalogo.listaDetallesProductos.size()-1).getNombre() +
-                "  -  " + Catalogo.listaDetallesProductos.get(Catalogo.listaDetallesProductos.size()-1).getRutaImagen());
+        Catalogo.listaInfoProductos.add("Nombre: " + Catalogo.listaDetallesProductos.get(Catalogo.listaDetallesProductos.size()-1).getNombre() +
+                "  -  " + "Precio: " + Catalogo.listaDetallesProductos.get(Catalogo.listaDetallesProductos.size()-1).getPrecio());
         Catalogo.adapter.notifyDataSetChanged();
     }
 
