@@ -3,7 +3,6 @@ package programacion.proyecto.cristian.seller;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.view.View;
 
 public class MyPagerAdapter extends FragmentStatePagerAdapter{
 
@@ -26,7 +25,7 @@ public class MyPagerAdapter extends FragmentStatePagerAdapter{
             case 2:
                 fragment = new Pedido();
                 break;
-            case 3: fragment = new Producto();
+            case 3: fragment = new Catalogo();
                 break;
             default:
                 fragment = null;

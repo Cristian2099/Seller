@@ -25,7 +25,7 @@ public class Cliente extends Fragment{
     static ArrayList<String> listaInfo;
     static ArrayList<PojoCliente> listaClientes;
     static ArrayAdapter adapter;
-    ListView listView;
+    ListView listViewClientes;
     AdminSQLiteOpenHelper conn;
 
 
@@ -38,12 +38,12 @@ public class Cliente extends Fragment{
         View view = inflater.inflate(R.layout.cliente,container,false);
 
         conn = new AdminSQLiteOpenHelper(getContext(),"bd_seller",null,1);
-        listView = (ListView) view.findViewById(R.id.listV);
+        listViewClientes = (ListView) view.findViewById(R.id.listViewClientes);
         consultarListaClientes();
         adapter = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,listaInfo);
-        listView.setAdapter(adapter);
+        listViewClientes.setAdapter(adapter);
         adapter.notifyDataSetChanged();
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listViewClientes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 PojoCliente cliente = listaClientes.get(position);

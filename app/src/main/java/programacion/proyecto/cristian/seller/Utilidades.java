@@ -28,12 +28,14 @@ public class Utilidades {
     //---------------------------------------------------------------------------------------------------------------
 
     //TABLA PRODUCTOS------------------------------------------------------------------------------------------------
-    public static final String TABLA_PRODUCTOS = "produtos";
+    public static final String TABLA_PRODUCTOS = "productos";
 
     //CAMPOS TABLA PRODUCTOS
     public static final String CAMPO_NOMBRE_PRODUCTO = "nombre";
+    public static final String CAMPO_DESCRIPCION = "descripcion";
     public static final String CAMPO_CANTIDAD_DISPONIBLE = "cantidad";
     public static final String CAMPO_PRECIO = "precio";
+    public static final String CAMPO_RUTA_IMAGEN = "ruta_imagen";
 
     //BORRA TABLA PRODUCTOS
     public static final String BORRAR_TABLA_PRODUCTOS = "DROP TABLE IF EXISTS "+ TABLA_PRODUCTOS;
@@ -57,8 +59,8 @@ public class Utilidades {
     public static final String CREAR_TABLA_PEDIDOS = "CREATE TABLE " + TABLA_PEDIDOS + "("+CAMPO_NOMBRE_NEGOCIO+" TEXT, "+CAMPO_TOTAL_PRODUCTOS+" TEXT,"
             +CAMPO_PRECIO_TOTAL + "TEXT)";
 
-    public static final String CREAR_TABLA_PRODUCTOS = "CREATE TABLE " + TABLA_PRODUCTOS + "("+CAMPO_NOMBRE_PRODUCTO+" TEXT, "+CAMPO_CANTIDAD_DISPONIBLE+" TEXT,"
-            +CAMPO_PRECIO+" TEXT)";
+    public static final String CREAR_TABLA_PRODUCTOS = "CREATE TABLE " + TABLA_PRODUCTOS + "("+CAMPO_NOMBRE_PRODUCTO+" TEXT, "+CAMPO_DESCRIPCION+" TEXT,"
+            +CAMPO_CANTIDAD_DISPONIBLE+" TEXT," +CAMPO_PRECIO+" TEXT,"+CAMPO_RUTA_IMAGEN+" TEXT)";
 
     public static final String CREAR_TABLA_USUARIOS = "CREATE TABLE " + TABLA_USUARIOS + "("+CAMPO_USUARIO+" TEXT, "+CAMPO_CONTRASENA+" TEXT)";
 }

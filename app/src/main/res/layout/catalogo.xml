@@ -18,13 +18,13 @@
         />
 
     <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="380dp"
-        >
-
-    </ListView>
+        android:id="@+id/listViewProductos"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        ></ListView>
 
     <Button
+        android:id="@+id/btnAñadir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
