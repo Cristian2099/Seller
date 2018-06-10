@@ -12,6 +12,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 
 import entidades.PojoCliente;
@@ -33,10 +35,10 @@ public class Catalogo extends Fragment implements View.OnClickListener {
         View view = inflater.inflate(R.layout.catalogo,container, false);
         listaDetallesProductos.clear();
         listaInfoProductos.clear();
+        consultarListaProductos();
         layoutRegisrarP = (Button) view.findViewById(R.id.btnAñadir);
         layoutRegisrarP.setOnClickListener(this);
         listViewProductos = (ListView) view.findViewById(R.id.listViewProductos);
-        consultarListaProductos();
         adapter = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,listaInfoProductos);
         listViewProductos.setAdapter(adapter);
         adapter.notifyDataSetChanged();
@@ -64,7 +66,6 @@ public class Catalogo extends Fragment implements View.OnClickListener {
     }
 
     public void consultarListaProductos(){
-
         AdminSQLiteOpenHelper conn = new AdminSQLiteOpenHelper(getContext(),"bd_seller",null,1);
         SQLiteDatabase db = conn.getReadableDatabase();
         PojoProducto pojoProducto = null;

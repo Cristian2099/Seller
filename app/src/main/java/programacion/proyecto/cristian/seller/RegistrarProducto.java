@@ -67,6 +67,7 @@ public class RegistrarProducto extends AppCompatActivity implements View.OnClick
 
         if (resultCode == RESULT_OK){
             Uri path = imageReturnIntent.getData();
+            Toast.makeText(getApplicationContext(),"Ruta " + path,Toast.LENGTH_LONG).show();
             imagen.setImageURI(path);
             imagen.setBackgroundResource(R.color.md_grey_200);
             rutaImagen = path.toString();
@@ -76,6 +77,7 @@ public class RegistrarProducto extends AppCompatActivity implements View.OnClick
 
     public void onClick(View v){
         registrarProducto();
+        Catalogo.listaDetallesProductos.clear();
         AdminSQLiteOpenHelper conn = new AdminSQLiteOpenHelper(getApplicationContext(), "bd_seller", null,1);
         SQLiteDatabase db = conn.getReadableDatabase();
         PojoProducto pojoProducto = null;

@@ -50,6 +50,7 @@ public class Registro extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         registrar();
+        Cliente.listaClientes.clear();
         AdminSQLiteOpenHelper conn = new AdminSQLiteOpenHelper(getContext(), "bd_seller", null,1);
         SQLiteDatabase db = conn.getReadableDatabase();
         PojoCliente pojoCliente = null;

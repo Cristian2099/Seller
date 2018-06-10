@@ -1,6 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Detalles"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:textColor="@color/md_teal_300"
+        android:layout_marginTop="10dp"
+        />
+
+    <ImageView
+        android:id="@+id/imgProductoDetalle"
+        android:layout_width="match_parent"
+        android:layout_height="184dp"
+        android:layout_marginTop="60dp"
+        android:padding="2dp"
+        android:textSize="20dp"
+        android:background="@drawable/nophotobig"
+        android:textAlignment="center"
+        />
+
+    <TextView
+        android:id="@+id/lblNombreProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="270dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="30dp"
+        android:text="Nombre: "
+        />
+
+    <TextView
+        android:id="@+id/lblCantidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="315dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="30dp"
+        android:text="Cantidad: "
+        />
+
+    <TextView
+        android:id="@+id/lblPrecio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="315dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="200dp"
+        android:text="Precio: "
+        />
+
+    <TextView
+        android:id="@+id/lblDescripcion"
+        android:layout_width="330dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="370dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="30dp"
+        android:text="Precio: "
+        />
+</RelativeLayout>
