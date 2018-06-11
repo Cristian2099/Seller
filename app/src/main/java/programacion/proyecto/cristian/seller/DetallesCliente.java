@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import entidades.PojoCliente;
 
 public class DetallesCliente extends AppCompatActivity{
 

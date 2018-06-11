@@ -27,10 +27,11 @@ public class RegistrarPedido extends AppCompatActivity{
 
     String nombreEmpresaI;
     ArrayList <Integer> preciosProductos = new ArrayList<>();
-    ArrayList <String> nombresProductos = new ArrayList<>();
+    static ArrayList <String> nombresProductos = new ArrayList<>();
     ArrayAdapter adapter;
     String productosTotales = "";
     int acumulado = 0;
+
     public RegistrarPedido(){
 
     }
@@ -81,6 +82,8 @@ public class RegistrarPedido extends AppCompatActivity{
             SQLiteDatabase db = conn.getWritableDatabase();
             ContentValues values = new ContentValues();
             values.put(Utilidades.CAMPO_NOMBRE_NEGOCIO, nombreEmpresa.getText().toString());
+
+            int contadorProductos = 0;
 
             values.put(Utilidades.CAMPO_TOTAL_PRODUCTOS, productosTotales);
 

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Detalles"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:textColor="@color/md_teal_300"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:id="@+id/lblNombreEmpresaDetallesPedido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="30dp"
+        android:text="Empresa: "
+        />
+
+    <TextView
+        android:id="@+id/lblProductosDetallesPedido"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="30dp"
+        android:text="Productos: "
+        android:inputType="textMultiLine"
+        />
+
+    <TextView
+        android:id="@+id/lblTotalDetallesPedido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:text="Total: "
+        android:textSize="20dp" />
+
+</LinearLayout>

@@ -41,6 +41,10 @@
 
         </activity>
 
+        <activity android:name=".DetallesPedido">
+
+        </activity>
+
     </application>
 
 </manifest>
