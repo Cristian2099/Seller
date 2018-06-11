@@ -65,6 +65,9 @@
         android:layout_marginLeft="30dp"
         android:text="Total: "
         android:textSize="30dp"
+        android:maxLines="300"
+        android:scrollbars="vertical"
+
         />
 
     <Button
@@ -76,7 +79,7 @@
         android:textColor="@color/md_teal_50"
         android:layout_marginTop="450dp"
         android:layout_marginLeft="130dp"
-
+        android:onClick="registrarPedido"
         />
 
 </RelativeLayout>
