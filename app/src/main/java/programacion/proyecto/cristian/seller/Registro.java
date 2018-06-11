@@ -68,7 +68,7 @@ public class Registro extends Fragment implements View.OnClickListener {
         }
 
 
-        Cliente.listaInfo.add(Cliente.listaClientes.get(Cliente.listaClientes.size()-1).getNombreNegocio() + "  -  " +
+        Cliente.listaInfo.add("Empresa: " + Cliente.listaClientes.get(Cliente.listaClientes.size()-1).getNombreNegocio() + "  |  Cliente: " +
                 Cliente.listaClientes.get(Cliente.listaClientes.size()-1).getNombre());
         Cliente.adapter.notifyDataSetChanged();
     }

@@ -45,9 +45,9 @@ public class DetallesProducto extends AppCompatActivity{
         precio.setText(precio.getText().toString() + precioI);
         descripcion.setText(descripcion.getText().toString() + descripcionI);
 
-        Uri ruta = Uri.parse(rutaI);
-        Bitmap bmp = BitmapFactory.decodeFile(ruta.toString());
-        imagenProductoDetalle.setImageBitmap(bmp);
+        //Uri ruta = Uri.parse(rutaI);
+        //Bitmap bmp = BitmapFactory.decodeFile(ruta.toString());
+        imagenProductoDetalle.setBackgroundResource(R.drawable.nophotobig);
     }
 
 }

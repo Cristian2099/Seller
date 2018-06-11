@@ -24,7 +24,8 @@ public class RegistrarPedido extends AppCompatActivity{
     TextView listaProductos;
     TextView total;
     Button registrarPedido;
-
+    String nombrePrecioListaProductos;
+    String totalDefault;
     String nombreEmpresaI;
     ArrayList <Integer> preciosProductos = new ArrayList<>();
     static ArrayList <String> nombresProductos = new ArrayList<>();
@@ -38,6 +39,8 @@ public class RegistrarPedido extends AppCompatActivity{
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        nombresProductos.clear();
+        preciosProductos.clear();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registrarpedido);
         nombreEmpresa = (TextView) findViewById(R.id.txtNombreEmpresaPedido);
@@ -46,6 +49,8 @@ public class RegistrarPedido extends AppCompatActivity{
 
         listaProductos = (TextView) findViewById(R.id.txtListaProductos);
         listaProductos.setText("        NOMBRE                                          PRECIO"+ "\n");
+        nombrePrecioListaProductos = listaProductos.getText().toString();
+        totalDefault = "Total: ";
         listaProductos.setMovementMethod(new ScrollingMovementMethod());
 
         total = (TextView) findViewById(R.id.txtTotalValor);
@@ -70,8 +75,7 @@ public class RegistrarPedido extends AppCompatActivity{
         String productoAgregado = productosSpin.getSelectedItem().toString();
         productosTotales += productoAgregado + " ";
         int precioProducto = preciosProductos.get(productosSpin.getSelectedItemPosition());
-        listaProductos.setText(listaProductos.getText().toString()
-                + "         "+productoAgregado + "                                              " + precioProducto + "\n");
+        listaProductos.setText(listaProductos.getText().toString() + "         "+productoAgregado + "                                              " + precioProducto + "\n");
         acumulado = precioProducto + acumulado;
         total.setText("");
         total.setText("Total: $" + acumulado);
@@ -83,13 +87,14 @@ public class RegistrarPedido extends AppCompatActivity{
             ContentValues values = new ContentValues();
             values.put(Utilidades.CAMPO_NOMBRE_NEGOCIO, nombreEmpresa.getText().toString());
 
-            int contadorProductos = 0;
-
             values.put(Utilidades.CAMPO_TOTAL_PRODUCTOS, productosTotales);
 
             values.put(Utilidades.CAMPO_PRECIO_TOTAL,total.getText().toString());
 
             Long resultado = db.insert(Utilidades.TABLA_PEDIDOS,null,values);
+            nombreEmpresa.setText("");
+            listaProductos.setText(nombrePrecioListaProductos);
+            total.setText(totalDefault);
             Toast.makeText(this,"Pedido registrado " + resultado,Toast.LENGTH_SHORT).show();
 
         }catch (SQLiteException e){
