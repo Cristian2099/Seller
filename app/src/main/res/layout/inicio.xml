@@ -9,10 +9,19 @@
         android:layout_width="103dp"
         android:layout_height="44dp"
         android:layout_marginLeft="150dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="20dp"
         android:text="INICIO"
         android:textColor="@color/md_teal_700"
         android:textSize="30sp" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:background="@drawable/proveedor"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        />
 
     <EditText
         android:id = "@+id/txtUsuario"
@@ -42,7 +51,7 @@
         android:layout_height="wrap_content"
         android:text="Iniciar sesión"
         android:layout_marginTop="40dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="120dp"
         android:textColor="@color/md_teal_50"
         android:background="@color/md_teal_500"
         />
@@ -52,8 +61,8 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Crear usuarios"
-        android:layout_marginTop="-50dp"
-        android:layout_marginLeft="190dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="120dp"
         android:textColor="@color/md_teal_50"
         android:background="@color/md_teal_500"
         android:onClick="crearUsuarios"

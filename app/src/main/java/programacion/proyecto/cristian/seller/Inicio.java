@@ -42,6 +42,8 @@ public class Inicio extends AppCompatActivity implements View.OnClickListener {
                     Intent intent = new Intent(view.getContext(),Contenido.class);
                     startActivity(intent);
                     Toast.makeText(view.getContext(),"Datos correctos",Toast.LENGTH_SHORT).show();
+                    usuario.setText("");
+                    contrasena.setText("");
                     break;
 
                 }else if(cursor.getPosition() != 0){

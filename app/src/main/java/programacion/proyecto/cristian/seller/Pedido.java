@@ -32,7 +32,7 @@ public class Pedido extends Fragment{
         listaInfoPedido.clear();
         listaPedidos = (ListView) view.findViewById(R.id.listViewPedidos);
         consultarListaPedidos();
-        adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, listaInfoPedido);
+        adapter = new ArrayAdapter(getContext(), R.layout.spinner_item_tab1, listaInfoPedido);
         listaPedidos.setAdapter(adapter);
         adapter.notifyDataSetChanged();
         listaPedidos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -69,8 +69,7 @@ public class Pedido extends Fragment{
     private void obtenerLista() {
 
         for(int i=0; i<listaDetallesPedido.size();i++){
-            listaInfoPedido.add(listaDetallesPedido.get(i).getNombreNegocio() + "    -    $"
-                    + listaDetallesPedido.get(i).getPrecioTotal());
+            listaInfoPedido.add(listaDetallesPedido.get(i).getNombreNegocio() + "    |    " + listaDetallesPedido.get(i).getPrecioTotal());
         }
     }
 

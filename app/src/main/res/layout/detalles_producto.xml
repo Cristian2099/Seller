@@ -61,6 +61,6 @@
         android:layout_marginTop="370dp"
         android:textSize="20dp"
         android:layout_marginLeft="30dp"
-        android:text="Precio: "
+        android:text="Descripción: "
         />
 </RelativeLayout>

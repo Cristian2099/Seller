@@ -37,7 +37,7 @@ public class Cliente extends Fragment{
         conn = new AdminSQLiteOpenHelper(getContext(),"bd_seller",null,1);
         listViewClientes = (ListView) view.findViewById(R.id.listViewClientes);
         consultarListaClientes();
-        adapter = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,listaInfo);
+        adapter = new ArrayAdapter(getContext(),R.layout.spinner_item_tab1,listaInfo);
         listViewClientes.setAdapter(adapter);
         adapter.notifyDataSetChanged();
         listViewClientes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -84,7 +84,7 @@ public class Cliente extends Fragment{
     private void obtenerLista() {
 
         for(int i=0; i<listaClientes.size();i++){
-            listaInfo.add(listaClientes.get(i).getNombreNegocio() + "    -    " + listaClientes.get(i).getNombre());
+            listaInfo.add("Empresa: " + listaClientes.get(i).getNombreNegocio() + "    |    Cliente: "+listaClientes.get(i).getNombre());
         }
     }
 

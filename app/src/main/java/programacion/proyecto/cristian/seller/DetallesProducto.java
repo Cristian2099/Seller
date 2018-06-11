@@ -1,5 +1,7 @@
 package programacion.proyecto.cristian.seller;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -33,17 +35,19 @@ public class DetallesProducto extends AppCompatActivity{
         String cantidadI = getIntent().getStringExtra("cantidad");
         String precioI = getIntent().getStringExtra("precio");
         String rutaI = getIntent().getStringExtra("ruta");
-        Uri ruta = Uri.parse(rutaI);
         Toast.makeText(getApplicationContext(),"Ruta " + rutaI,Toast.LENGTH_LONG).show();
         //int imageResource = getResources().getIdentifier(rutaI,null,getPackageName());
         //Drawable imagen = ContextCompat.getDrawable(getApplicationContext(),imageResource);
+
 
         nombre.setText(nombre.getText().toString() + nombreI);
         cantidad.setText(cantidad.getText().toString() + cantidadI);
         precio.setText(precio.getText().toString() + precioI);
         descripcion.setText(descripcion.getText().toString() + descripcionI);
 
-        imagenProductoDetalle.setBackgroundResource(R.drawable.gaseosa);
+        Uri ruta = Uri.parse(rutaI);
+        Bitmap bmp = BitmapFactory.decodeFile(ruta.toString());
+        imagenProductoDetalle.setImageBitmap(bmp);
     }
 
 }

@@ -39,7 +39,7 @@ public class Catalogo extends Fragment implements View.OnClickListener {
         layoutRegisrarP = (Button) view.findViewById(R.id.btnAñadir);
         layoutRegisrarP.setOnClickListener(this);
         listViewProductos = (ListView) view.findViewById(R.id.listViewProductos);
-        adapter = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,listaInfoProductos);
+        adapter = new ArrayAdapter(getContext(),R.layout.spinner_item_tab1,listaInfoProductos);
         listViewProductos.setAdapter(adapter);
         adapter.notifyDataSetChanged();
         listViewProductos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -88,7 +88,7 @@ public class Catalogo extends Fragment implements View.OnClickListener {
     private void obtenerLista() {
 
         for(int i=0; i<listaDetallesProductos.size();i++){
-            listaInfoProductos.add(listaDetallesProductos.get(i).getNombre() + "    -    " + listaDetallesProductos.get(i).getPrecio());
+            listaInfoProductos.add("Nombre: " + listaDetallesProductos.get(i).getNombre() + "    |    Valor: $" + listaDetallesProductos.get(i).getPrecio());
         }
     }
 

@@ -18,8 +18,10 @@
 
     <ListView
         android:id="@+id/listViewProductos"
-        android:layout_width="match_parent"
-        android:layout_height="320dp"
+        android:layout_width="340dp"
+        android:layout_height="340dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
         >
 
     </ListView>
