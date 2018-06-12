@@ -1,85 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" 
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
 
-    <TextView
+    <RelativeLayout
+
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Registrar Pedido"
-        android:textAlignment="center"
-        android:textSize="30dp"
-        android:textColor="@color/md_teal_300"
-        android:layout_marginTop="10dp"
-        />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
 
-    <TextView
-        android:id="@+id/txtNombreEmpresaPedido"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginLeft="30dp"
-        android:hint="NombreEmpresa"
-        android:textSize="25dp"
-        />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registrar Pedido"
+            android:textAlignment="center"
+            android:textSize="30dp"
+            android:textColor="@color/md_teal_300"
+            android:layout_marginTop="10dp"
+            />
 
-    <Spinner
-        android:id="@+id/spinProductos"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginLeft="30dp"
-        android:background="@color/md_teal_400"
-        />
+        <TextView
+            android:id="@+id/txtNombreEmpresaPedido"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="30dp"
+            android:hint="NombreEmpresa"
+            android:textSize="25dp"
+            />
 
-    <Button
-        android:id="@+id/btnAgregarProdLista"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+"
-        android:textSize="25dp"
-        android:layout_marginTop="112dp"
-        android:layout_marginLeft="260dp"
-        android:onClick="agregarProducto"
-        />
+        <Spinner
+            android:id="@+id/spinProductos"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginLeft="30dp"
+            android:background="@color/md_teal_400"
+            />
 
-    <TextView
-        android:id="@+id/txtListaProductos"
-        android:layout_width="320dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="180dp"
-        android:layout_marginLeft="30dp"
-        android:background="@color/md_grey_300"
-        android:inputType="textMultiLine"
-        android:lineSpacingExtra="10dp"
-        />
+        <Button
+            android:id="@+id/btnAgregarProdLista"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:textSize="25dp"
+            android:layout_marginTop="112dp"
+            android:layout_marginLeft="260dp"
+            android:onClick="agregarProducto"
+            />
 
-    <TextView
-        android:id="@+id/txtTotalValor"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="400dp"
-        android:layout_marginLeft="30dp"
-        android:text="Total: "
-        android:textSize="30dp"
-        android:maxLines="300"
-        android:scrollbars="vertical"
+        <TextView
+            android:id="@+id/txtListaProductos"
+            android:layout_width="320dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="180dp"
+            android:layout_marginLeft="30dp"
+            android:background="@color/md_grey_300"
+            android:inputType="textMultiLine"
+            android:lineSpacingExtra="10dp"
+            />
 
-        />
+        <TextView
+            android:id="@+id/txtTotalValor"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="400dp"
+            android:layout_marginLeft="30dp"
+            android:text="Total: "
+            android:textSize="30dp"
+            android:maxLines="300"
+            android:scrollbars="vertical"
 
-    <Button
-        android:id="@+id/btnRegistrarPedido"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Registrar"
-        android:background="@color/md_teal_500"
-        android:textColor="@color/md_teal_50"
-        android:layout_marginTop="450dp"
-        android:layout_marginLeft="130dp"
-        android:onClick="registrarPedido"
-        />
+            />
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/btnRegistrarPedido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Registrar"
+            android:background="@color/md_teal_500"
+            android:textColor="@color/md_teal_50"
+            android:layout_marginTop="450dp"
+            android:layout_marginLeft="130dp"
+            android:onClick="registrarPedido"
+            />
+
+    </RelativeLayout>
+
+
+
+
+</ScrollView>

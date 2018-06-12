@@ -67,7 +67,6 @@ public class RegistrarProducto extends AppCompatActivity implements View.OnClick
 
         if (resultCode == RESULT_OK){
             Uri path = imageReturnIntent.getData();
-            Toast.makeText(getApplicationContext(),"Ruta " + path,Toast.LENGTH_LONG).show();
             imagen.setImageURI(path);
             imagen.setBackgroundResource(R.color.md_grey_200);
             rutaImagen = path.toString();

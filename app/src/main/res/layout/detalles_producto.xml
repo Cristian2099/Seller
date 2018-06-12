@@ -20,7 +20,7 @@
         android:layout_marginTop="60dp"
         android:padding="2dp"
         android:textSize="20dp"
-        android:background="@drawable/nophotobig"
+        android:background="@color/md_grey_200"
         android:textAlignment="center"
         />
 
